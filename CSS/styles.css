@@ -109,12 +109,12 @@ nav.top .desktop ul{
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 0;
 }
 
-.background .background-border{
-  position: absolute;
+.background-border{
+  position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   border: 16px solid #060606;
@@ -161,7 +161,7 @@ section .content-wrap{
 }
 
 section:not(.hero) .content-wrap{
-  padding: 32px;
+  padding: 32px 16px;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -270,9 +270,11 @@ section.about{
 
 section.about h2{
   font-size: 2em;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 section.about p{
-  line-height: 1.4;
+  margin-top: 8px;
+  line-height: 1.5;
 }
