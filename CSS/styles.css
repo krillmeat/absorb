@@ -3,6 +3,18 @@
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  GENERAL                                                                ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+h1,h2,h3,h4,p{
+  font-family: 'Rubik', sans-serif;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  NAVIGATION                                                             ::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -67,7 +79,7 @@ nav.top button.mobile-menu{
 nav.top button.mobile-menu .rect{
   width: 24px;
   height: 4px;
-  background: pink;
+  background: #060606;
   margin-bottom: 4px;
 }
 
@@ -88,19 +100,68 @@ nav.top .desktop ul{
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  BACKGROUND                                                             ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.background{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.background .background-border{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 16px solid #060606;
+  z-index: 999;
+}
+
+.background .back-img-wrap{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+.background .background-image{
+  width: 100%; height: 100%;
+  background-image: url('../MEDIA/texture.jpg');
+  background-position: center center;
+  background-size: cover;
+  animation: backgroundWarp 180s linear 0s infinite;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  SECTIONS                                                               ::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+.page-content{
+  position: relative;
+  z-index: 10;
+  padding: 16px;
+}
+
 section{
   width: 100%;
 }
 
-section .content-wrapper{
+section .content-wrap{
   width: 100%;
     max-width: 1000px;
   margin: 0 auto;
+  padding: 16px;
+}
+
+section:not(.hero) .content-wrap{
+  padding: 32px;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -110,3 +171,108 @@ section .content-wrapper{
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 section.hero{}
+
+section.hero .content-wrap{
+  height: 100%;
+}
+
+section.hero .big-text-wrap{
+  position: absolute;
+  top: 16px; left: 16px;
+  overflow: hidden;
+  width: calc(100% - 32px);
+  z-index: -1;
+}
+
+section.hero h1{
+  display: flex;
+    flex-wrap: wrap;
+  width: calc(100% + .15em);
+  transform: translateX(-.15em);
+  
+  color: #D9D8D3;
+  line-height: .65em;
+  font-size: 95vw;
+  font-weight: 900;
+}
+
+section.hero h1 span{
+  display: block;
+  width: 50%;
+}
+
+/* section.hero h1 .a{ animation: aGrowth 10s linear 0s infinite }
+section.hero h1 .b{ animation: bGrowth 20s linear 0s infinite } */
+
+section.hero .content-wrap{
+  z-index: 12;
+}
+
+section.hero .hero-content{
+  height: 100%;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section.hero p{
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  padding: 8px;
+  background: #060606;
+  z-index: 13;
+
+  color:#D9D8D3;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+section.hero p.dates{
+  max-width: 180px;
+}
+
+section.hero p.main{
+  max-width: 700px;
+  margin-top: 32px;
+  padding: 32px;
+  z-index: 13;
+
+  font-size: 3.5em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+section.hero p.main span{
+  display: block;
+  margin-top: 8px;
+  font-size: .4em;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+section.hero p.location{
+  margin-top: 32px;
+  font-size: .9em;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  ABOUT                                                                  ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+section.about{
+  background: #060606;
+  color: #FFF;
+  font-weight: 400;
+}
+
+section.about h2{
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+section.about p{
+  line-height: 1.4;
+}

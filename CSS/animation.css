@@ -1,0 +1,22 @@
+@keyframes aGrowth{
+    0%{ text-shadow: -2px -2px 0 #D9D8D3, 2px -2px 0 #D9D8D3, 2px 2px 0 #D9D8D3, -2px 2px 0 #D9D8D3 }
+   20%{ text-shadow: 0px -2px 0 #D9D8D3, 2px -4px 0 #D9D8D3, 4px 0px 0 #D9D8D3, 4px -2px 0 #D9D8D3 }
+   60%{ text-shadow: -2px 4px 0 #D9D8D3, 0px -2px 0 #D9D8D3, -2px 2px 0 #D9D8D3, 4px 2px 0 #D9D8D3 }
+   70%{ text-shadow: -2px -4px 0 #D9D8D3, 2px 4px 0 #D9D8D3, -2px 2px 0 #D9D8D3, 0px 0px 0 #D9D8D3 }
+  100%{ text-shadow: -2px -2px 0 #D9D8D3, 2px -2px 0 #D9D8D3, 2px 2px 0 #D9D8D3, -2px 2px 0 #D9D8D3 }
+}
+
+@keyframes backgroundWarp{
+  0%{ 
+    background-position: 50% 50%;
+    transform: scale(1) rotate(0deg)
+  }
+  50%{
+    background-position: 20% 50%;
+    transform: scale(1.25) rotate(8deg)
+  }
+  100%{
+    background-position: 50% 50%;
+    transform: scale(1) rotate(0deg)
+  }
+}
