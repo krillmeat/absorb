@@ -157,11 +157,11 @@ section .content-wrap{
   width: 100%;
     max-width: 1000px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 16px 0px; /* On mobile, things can go off-edge */
 }
 
 section:not(.hero) .content-wrap{
-  padding: 32px 16px;
+  padding: 32px 0px;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -229,11 +229,13 @@ section.hero p{
 }
 
 section.hero p.dates{
-  max-width: 180px;
+  max-width: calc(72vw + 16px);
+  min-width: calc(48vw + 16px);
+  font-size: .8em;
 }
 
 section.hero p.main{
-  max-width: 700px;
+  width: calc(72vw + 16px);
   margin-top: 32px;
   padding: 32px;
   z-index: 13;
@@ -252,8 +254,9 @@ section.hero p.main span{
 }
 
 section.hero p.location{
+  width: calc(72vw + 16px);
   margin-top: 32px;
-  font-size: .9em;
+  font-size: .8em;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -269,12 +272,82 @@ section.about{
 }
 
 section.about h2{
+  width: calc(72vw + 16px);
+  margin: 0 auto;
   font-size: 2em;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 section.about p{
+  width: calc(72vw + 16px);
+  margin: 0 auto;
   margin-top: 8px;
   line-height: 1.5;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  SPEAKERS                                                               ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+section.speakers h2,
+section.schedule h2{
+  width: calc(72vw + 16px);
+  background: #060606;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+  color: #D9D8D3;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size:2.125em;
+}
+
+section.speakers .speaker{
+  padding-top: 32px;
+}
+
+section.speakers .speaker img{
+  display: block;
+  width: calc(72vw + 16px);
+  margin: 0 auto;
+  border: 16px solid #060606;
+    border-left: 32px solid #060606;
+  transform: translateX(-8vw);
+}
+
+section.speakers .speaker h3{
+  position: relative;
+  width: calc(75vw - 6px);
+  margin-top: -40px;
+  margin-left: calc(12.5vw - 16px);
+  background: #060606;
+  padding: 16px;
+  z-index: 10;
+
+  font-size: 2em;
+  color: #D9D8D3;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+section.speakers .speaker p{
+  width: calc(87.5vw - 18px);
+  margin-top: 8px;
+  margin-left: calc(12.5vw - 16px);
+  padding: 16px;
+  background: #060606;
+
+  font-size: .9em;
+  color: #D9D8D3;
+  line-height: 1.4;
+}
+
+section.speakers .speaker p span{
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
