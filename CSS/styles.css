@@ -121,6 +121,10 @@ nav.top .desktop ul{
   z-index: 999;
 }
 
+@media (min-width: 725px){
+  .background-border{ border: 32px solid #060606 }
+}
+
 .background .back-img-wrap{
   position: absolute;
   top: 0; left: 0;
@@ -132,7 +136,7 @@ nav.top .desktop ul{
   background-image: url('../MEDIA/texture.jpg');
   background-position: center center;
   background-size: cover;
-  animation: backgroundWarp 180s linear 0s infinite;
+  animation: backgroundWarp 120s linear 0s infinite;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -157,7 +161,7 @@ section .content-wrap{
   width: 100%;
     max-width: 1000px;
   margin: 0 auto;
-  padding: 16px 0px; /* On mobile, things can go off-edge */
+  padding: 16px 0px 16px 0px; /* On mobile, things can go off-edge */
 }
 
 section:not(.hero) .content-wrap{
@@ -176,6 +180,10 @@ section.hero .content-wrap{
   height: 100%;
 }
 
+@media (min-width: 725px){
+  section.hero .content-wrap{ padding: 48px 0 32px 0 }
+}
+
 section.hero .big-text-wrap{
   position: absolute;
   top: 16px; left: 16px;
@@ -188,17 +196,32 @@ section.hero h1{
   display: flex;
     flex-wrap: wrap;
   width: calc(100% + .15em);
+  max-width: 1000px;
   transform: translateX(-.15em);
+  margin: 0 auto;
   
   color: #D9D8D3;
   line-height: .65em;
-  font-size: 95vw;
+  font-size: 86vw;
   font-weight: 900;
 }
 
 section.hero h1 span{
   display: block;
   width: 50%;
+}
+
+@media (min-width: 525px){
+  section.hero h1{ 
+    font-size: 62vw;
+    line-height: .66em;
+    transform: translateX(-10vw);
+  }
+  section.hero h1 span{ width: 33.333333% }
+}
+
+@media (min-width: 950px){
+  section.hero h1 { font-size: 35em; transform: translateX(-2vw) }
 }
 
 /* section.hero h1 .a{ animation: aGrowth 10s linear 0s infinite }
@@ -229,13 +252,14 @@ section.hero p{
 }
 
 section.hero p.dates{
-  max-width: calc(72vw + 16px);
-  min-width: calc(48vw + 16px);
+  width: calc(48vw + 16px);
+  max-width: 230px;
   font-size: .8em;
 }
 
 section.hero p.main{
   width: calc(72vw + 16px);
+  max-width: 469px;
   margin-top: 32px;
   padding: 32px;
   z-index: 13;
@@ -255,6 +279,7 @@ section.hero p.main span{
 
 section.hero p.location{
   width: calc(72vw + 16px);
+    max-width: 349px;
   margin-top: 32px;
   font-size: .8em;
 }
@@ -269,6 +294,10 @@ section.about{
   background: #060606;
   color: #FFF;
   font-weight: 400;
+}
+
+section.about .content-wrap{
+  padding: 64px 32px;
 }
 
 section.about h2{
@@ -286,6 +315,19 @@ section.about p{
   line-height: 1.5;
 }
 
+@media (min-width: 675px){
+  section.about .content-wrap{ padding: 80px 48px }
+}
+
+@media (min-width: 750px){
+  section.about h2{ font-size: 2.5em }
+
+  section.about p{
+    font-size: 1.125em;
+    margin-top: 16px;
+  }
+}
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  SPEAKERS                                                               ::::::::::::::::::::
@@ -293,7 +335,8 @@ section.about p{
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 section.speakers h2,
-section.schedule h2{
+section.schedule h2,
+section.register h2{
   width: calc(72vw + 16px);
   background: #060606;
   margin: 0 auto;
@@ -307,7 +350,9 @@ section.schedule h2{
 }
 
 section.speakers .speaker{
+  position: relative;
   padding-top: 32px;
+  overflow: hidden;
 }
 
 section.speakers .speaker img{
@@ -335,19 +380,115 @@ section.speakers .speaker h3{
 }
 
 section.speakers .speaker p{
+  position: relative;
   width: calc(87.5vw - 18px);
   margin-top: 8px;
   margin-left: calc(12.5vw - 16px);
-  padding: 16px;
+  padding: 24px;
   background: #060606;
 
   font-size: .9em;
   color: #D9D8D3;
   line-height: 1.4;
+  z-index: 10;
 }
 
 section.speakers .speaker p span{
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+section.speakers .speaker::before{
+  position: absolute;
+  top: 88px; left: -32px;
+  width: 100%;
+
+  font-size: 10em;
+  font-weight: 900;
+  color: #FFF;
+  font-family: 'Rubik', sans-serif;
+  text-transform: uppercase;
+  line-height: .7;
+  z-index: 0;
+}
+
+section.speakers .speaker:first-of-type::before{ content: 'David Pearson' }
+section.speakers .speaker:nth-of-type(2)::before{ content: 'Archie Lee Coates IV' }
+section.speakers .speaker:last-of-type::before{ content: 'Sheila Levrant de Bretteville' }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+::::::::::::::::::::  SCHEDULE                                                               ::::::::::::::::::::
+::::::::::::::::::::                                                                         ::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+section.schedule h3{
+  display: block;
+  width: calc(48vw + 16px);
+  padding: 8px;
+  margin: 16px auto;
+  background: #060606;
+
+  font-size: 1.125em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFF;
+}
+
+section.schedule ul{
+  background: #060606;
+  padding: 16px 0;
+}
+
+section.schedule ul li{
+  display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  color: #D9D8D3;
+}
+
+section.schedule ul li .time{
+  display: block;
+  color: #D9D8D3;
+  margin-right: 8px;
+  font-weight: 900;
+}
+
+section.schedule ul li .time .hour{
+  display: block;
+  background: #060606;
+  padding: 16px;
+}
+
+section.schedule ul li .time .am-pm{
+  font-size: .7em;
+  font-weight: 400;
+}
+
+section.schedule ul li .main{
+  width: 76vw;
+  background: #060606;
+  padding: 16px;
+}
+
+section.schedule ul li .main h4{
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.125em;
+}
+
+section.schedule ul li .main .desc{
+  margin-top: 8px;
+  line-height: 1.4;
+  font-size: .9em;
+}
+
+
+footer{
+  width: 100%;
+  background: #060606;
+  min-height: 200px;
 }
