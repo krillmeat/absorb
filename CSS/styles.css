@@ -115,14 +115,36 @@ nav.top .desktop ul{
 
 .background-border{
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: 16px solid #060606;
+  background: #060606;
   z-index: 999;
 }
 
+.background-border.top{
+  top: 0; left: 0;
+  width: 100%;
+  height: 16px;
+}
+
+.background-border.right{
+  top: 0; right: 0;
+  width: 16px;
+  height: 100%;
+}
+
+.background-border.bottom{
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 16px;
+}
+
+.background-border.left{
+  top: 0; left: 0;
+  width: 16px;
+  height: 100%;
+}
+
 @media (min-width: 725px){
-  .background-border{ border: 32px solid #060606 }
+  .background-border.top{ height: 16px }
 }
 
 .background .back-img-wrap{
@@ -224,6 +246,10 @@ section.hero h1 span{
   section.hero h1 { font-size: 35em; transform: translateX(-2vw) }
 }
 
+@media (min-width: 1100px){
+  section.hero h1 { font-size: 42em; transform: translateX(-5vw) }
+}
+
 /* section.hero h1 .a{ animation: aGrowth 10s linear 0s infinite }
 section.hero h1 .b{ animation: bGrowth 20s linear 0s infinite } */
 
@@ -284,6 +310,61 @@ section.hero p.location{
   font-size: .8em;
 }
 
+@media (min-width: 900px){
+  section.hero .hero-content{
+    justify-content: center;
+  }
+
+  section.hero p.main{
+    margin-top: 0px;
+  }
+
+  section.hero p.dates{
+    position: absolute;
+    top: 200px;
+    left: 64px;
+    width: auto;
+    height: 375px;
+    margin: auto 0;
+    padding: 16px 8px;
+
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: .75em;
+  }
+
+  section.hero p.location{
+    position: absolute;
+    top: 120px;
+    right: 64px;
+    width: auto;
+    height: 570px;
+    margin: auto 0;
+    padding: 16px 8px;
+
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: .75em;
+  }
+}
+
+@media (min-width: 1100px){
+
+  section.hero p.dates{
+    top: calc(50vh - 185px);
+    height: 375px;
+    padding: 16px 8px;
+
+    font-size: .9em;
+  }
+
+  section.hero p.location{
+    top: calc(50vh - 385px);
+    height: 700px;
+    font-size: .9em;
+  }
+}
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  ABOUT                                                                  ::::::::::::::::::::
@@ -302,6 +383,7 @@ section.about .content-wrap{
 
 section.about h2{
   width: calc(72vw + 16px);
+    max-width: 670px;
   margin: 0 auto;
   font-size: 2em;
   font-weight: 700;
@@ -310,6 +392,7 @@ section.about h2{
 
 section.about p{
   width: calc(72vw + 16px);
+    max-width: 670px;
   margin: 0 auto;
   margin-top: 8px;
   line-height: 1.5;
@@ -325,6 +408,13 @@ section.about p{
   section.about p{
     font-size: 1.125em;
     margin-top: 16px;
+  }
+}
+
+@media (min-width: 1200px){
+  section.about .content-wrap{ padding: 160px 48px }
+  section.about p{
+    font-size: 1.25em;
   }
 }
 
@@ -387,7 +477,7 @@ section.speakers .speaker p{
   padding: 24px;
   background: #060606;
 
-  font-size: .9em;
+  font-size: 1em;
   color: #D9D8D3;
   line-height: 1.4;
   z-index: 10;
@@ -414,8 +504,58 @@ section.speakers .speaker::before{
 }
 
 section.speakers .speaker:first-of-type::before{ content: 'David Pearson' }
-section.speakers .speaker:nth-of-type(2)::before{ content: 'Archie Lee Coates IV' }
-section.speakers .speaker:last-of-type::before{ content: 'Sheila Levrant de Bretteville' }
+section.speakers .speaker:nth-of-type(2)::before{ content: 'Archie Lee Coates&nbsp;IV' }
+section.speakers .speaker:last-of-type::before{ content: 'Sheila Levrant de&nbsp;Bretteville' }
+
+
+@media (min-width: 768px){
+  section.speakers .speaker{ 
+    display: flex;
+      align-items: center;
+    margin-top: 32px;
+    padding: 0 calc(6.25vw - 16px );
+  }
+
+  section.speakers .speaker > div{
+    width: 50%;
+  }
+
+  section.speakers .speaker > div img{
+    width: calc(50vw - 16px);
+    border-left: 16px #060606 solid;
+    transform: translateX(0);
+  }
+
+  section.speakers .speaker > div h3{ 
+    width: calc(37.5vw - 40px);
+    margin-left: 24px;
+    font-size: 1.75em;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  section.speakers .speaker p{
+    margin-left: .5vw;
+    font-size: 1.125em;
+    line-height: 1.5;
+  }
+
+  section.speakers .speaker::before{ 
+    top: 64px;
+    text-align: right;
+    line-height: .75;
+    letter-spacing: -12px;
+    transform: translateX(4vw);
+  }
+}
+
+@media (min-width: 1000px){
+  section.speakers .speakers-list {
+    display: flex;
+      justify-content: center;
+    width: 100%;
+  }
+}
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
@@ -423,14 +563,18 @@ section.speakers .speaker:last-of-type::before{ content: 'Sheila Levrant de Bret
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+section.schedule .day{
+  /* background: #060606; */
+  margin-top: 32px;
+}
+
 section.schedule h3{
   display: block;
-  width: calc(48vw + 16px);
+  width: 100%;
   padding: 8px;
-  margin: 16px auto;
-  background: #060606;
+  margin: 0 auto -48px auto;
 
-  font-size: 1.125em;
+  font-size: 4em;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
@@ -439,7 +583,7 @@ section.schedule h3{
 
 section.schedule ul{
   background: #060606;
-  padding: 16px 0;
+  padding: 56px 0 32px 0;
 }
 
 section.schedule ul li{
