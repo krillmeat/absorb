@@ -18,7 +18,17 @@ function init(){
     setupDebug();
 
     setHeroHeight();
+
+    let packageButtons = document.querySelectorAll("button.package");
+    for(let i = 0; i < packageButtons.length; i++){
+      packageButtons[i].addEventListener("click",packageToggle);
+    }
     
+}
+
+function packageToggle(e){
+  document.querySelector(".package[data-state='active']").dataset.state = "";
+  e.currentTarget.dataset.state = "active";
 }
 
 function setHeroHeight(){

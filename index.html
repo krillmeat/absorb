@@ -119,9 +119,33 @@
 
           <section id='register' class='register'><div class='content-wrap'>
             <h2>Register</h2>
+            <p>Select your package and give us your name and email, and we'll reach out to you for more information.</p>
+            <div class='package-options'>
+              <button class='package' data-state='active'>
+                <span class='name'>Complete</span>
+                <span class='cost'><span class='dollar-sign'>$</span><span>250</span></span>
+                <ul>
+                  <li>All of the basic package</li>
+                  <li>Access to a lunch with the staff and speakers on the first day</li>
+                  <li>Access to happy hour with the staff and speakers after the second day</li>
+                </ul>
+              </button>
+              <button class='package'>
+                <span class='name'>Basic</span>
+                <span class='cost'><span class='dollar-sign'>$</span><span>100</span></span>
+                <ul>
+                  <li>Access to both days of the event</li>
+                  <li>Official Insights 2020 publication</li>
+                  <li>Invite to participate in the event Slack channel</li>
+                </ul>
+              </button>
+            </div>
             <form>
               <label for='name'>Name</label>
-              <input id='name' type='text'/>
+              <input id='name' type='text' placeholder='Full Name'/>
+              <label for='email'>Email</label>
+              <input id='email' type='text' placeholder='Email'/>
+              <button type='submit'>Register</button>
             </form>
           </div></section>
 
