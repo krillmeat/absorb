@@ -55,6 +55,7 @@ nav .desktop{
 nav.top{
   top: 0; left: 0;
   width: 100%;
+  z-index: 1000;
 }
 
 @media all and (min-width: 700px){
@@ -68,6 +69,9 @@ nav.top{
 
 nav.top .mobile{
   width: 100%;
+  background: #060606;
+  justify-content: center;
+  padding: 8px;
 }
 
 nav.top button.mobile-menu{
@@ -79,12 +83,55 @@ nav.top button.mobile-menu{
 nav.top button.mobile-menu .rect{
   width: 24px;
   height: 4px;
-  background: #060606;
+  background: #D9D8D3;
   margin-bottom: 4px;
+
+  transition: transform .1s linear;
 }
 
 nav.top button.mobile-menu .rect:last-of-type{
   margin-bottom: 0;
+}
+
+nav.top .mobile[data-state='active'] button.mobile-menu .rect:first-of-type{ transform: rotate(45deg) translate(6px, 6px) }
+nav.top .mobile[data-state='active'] button.mobile-menu .rect:nth-of-type(2){ opacity: 0 }
+nav.top .mobile[data-state='active'] button.mobile-menu .rect:last-of-type{ transform: rotate(-45deg) translate(5px, -6px) }
+
+nav.top .mobile .hidden-menu{
+  position: absolute;
+  top: 52px; left: 0px;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  background: #060606;
+
+  transition: height .1s linear;
+}
+
+nav.top .mobile .hidden-menu ul{
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+nav.top .mobile .hidden-menu ul li{
+  margin-top: 16px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav.top .mobile .hidden-menu ul li:first-of-type{ margin-top: 0px }
+
+nav.top .mobile .hidden-menu ul li a{
+  color: #D9D8D3;
+  text-decoration: none;
+}
+
+nav.top .mobile .hidden-menu ul li a:hover{
+  font-weight: 900;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -199,6 +246,7 @@ section:not(.hero) .content-wrap{
 section.hero{}
 
 section.hero .content-wrap{
+  padding-top: 48px;
   height: 100%;
 }
 
@@ -666,6 +714,8 @@ section.register button.package{
   font-weight: 500;
 }
 
+section.register button.package:hover{ box-shadow: 0 0 0 10px inset #060606, 0 0 0 12px inset #D9D8D3 }
+
 section.register button.package:nth-of-type(2){
   margin-top: 8px;
 }
@@ -674,6 +724,8 @@ section.register button.package[data-state='active']{
   background: #D9D8D3;
   color: #060606;
 }
+
+section.register button.package[data-state='active']:hover{ box-shadow: 0 0 0 10px inset #D9D8D3, 0 0 0 12px inset #060606 }
 
 section.register button.package .cost{
   display: flex;
@@ -754,6 +806,10 @@ section.register form button{
   font-weight: 700;
 }
 
+section.register form button:hover{
+  box-shadow: 0 0 0 6px inset #D9D8D3, 0 0 0 8px inset #060606
+}
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::                                                                         ::::::::::::::::::::
 ::::::::::::::::::::  FOOTER                                                                 ::::::::::::::::::::
@@ -763,5 +819,27 @@ section.register form button{
 footer{
   width: 100%;
   background: #060606;
-  min-height: 200px;
+  padding: 32px 16px 16px 16px;
+  color: #D9D8D3;
+}
+
+footer a.to-top{
+  font-family: 'Rubik', sans-serif;
+  display: block;
+  color: #D9D8D3;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  font-size: 1.125em;
+  text-decoration: none;
+  text-align: center;
+}
+
+footer .copyright{
+  width: 100%;
+  margin-top: 16px;
+  font-size: .75em;
+  text-align: center;
 }

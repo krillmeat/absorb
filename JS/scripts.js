@@ -19,11 +19,27 @@ function init(){
 
     setHeroHeight();
 
+    // MOBILE TOGGLE
+    document.querySelector("button.mobile-menu").addEventListener("click",mobileNavToggle);
+
+    // PACKAGE BUTTONS
     let packageButtons = document.querySelectorAll("button.package");
     for(let i = 0; i < packageButtons.length; i++){
       packageButtons[i].addEventListener("click",packageToggle);
     }
-    
+}
+
+function mobileNavToggle(e){
+  let t = e.currentTarget;
+  let p = t.parentElement;
+  
+  if(p.dataset.state === 'active'){
+    p.dataset.state = '';
+    p.querySelector(".hidden-menu").style.height = "0px";
+  } else{
+    p.dataset.state = 'active';
+    p.querySelector(".hidden-menu").style.height = p.querySelector(".hidden-menu ul").offsetHeight + 48 + "px";
+  }
 }
 
 function packageToggle(e){
